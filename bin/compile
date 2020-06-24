@@ -41,8 +41,11 @@ for FILENAME in $(cat ${BUILD_DIR}/.buildcache | sed '/^$/d'); do
     rm -r ${DEST}
   fi
 
+  # cache size
+  CACHE_SIZE=$(du -sh ${SRC} | cut -f1)
+
   # copy files to cache
   cp -r ${SRC} ${DEST}
 
-  echo " ✓"
+  echo " ✓ ${CACHE_SIZE}"
 done
