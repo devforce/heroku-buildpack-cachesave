@@ -45,7 +45,7 @@ for FILENAME in $(cat ${BUILD_DIR}/.buildcache | sed '/^$/d'); do
   CACHE_SIZE=$(du -sh ${SRC} | cut -f1)
 
   # copy files to cache
-  tar cz --file ${DEST}.tar.gz --directory $(dirname $SRC) $(basename $SRC)
+  tar cz --file ${DEST}.tar.gz --directory $(dirname ${SRC}) $(basename ${SRC})
 
   echo " ✓ ${CACHE_SIZE}"
 done
